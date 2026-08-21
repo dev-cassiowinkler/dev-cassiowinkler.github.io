@@ -1,472 +1,489 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cássio Winkler | Consultor de TI & Especialista TOTVS</title>
-  
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cássio Winkler | Consultor de TI & Especialista TOTVS</title>
 
-    :root {
-      --bg: #050508;
-      --card-bg: rgba(18, 18, 26, 0.7);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --accent: #6366f1;
-      --accent-cyan: #06b6d4;
-      --text: #f3f4f6;
-      --text-muted: #9ca3af;
-    }
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+            :root {
+                --bg: #050508;
+                --card-bg: rgba(18, 18, 26, 0.7);
+                --card-border: rgba(255, 255, 255, 0.08);
+                --accent: #6366f1;
+                --accent-cyan: #06b6d4;
+                --text: #f3f4f6;
+                --text-muted: #9ca3af;
+            }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      overflow-x: hidden;
-      position: relative;
-    }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-    /* Padrão de Fundo Futurista e Neon */
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
-      background-size: 32px 32px;
-      z-index: -2;
-    }
+            body {
+                font-family: "Inter", sans-serif;
+                background-color: var(--bg);
+                color: var(--text);
+                line-height: 1.6;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 40px 20px;
+                overflow-x: hidden;
+                position: relative;
+            }
 
-    .glow-cyan {
-      position: fixed;
-      top: -150px;
-      left: -150px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+            /* Padrão de Fundo Futurista e Neon */
+            .bg-grid {
+                position: fixed;
+                inset: 0;
+                background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+                background-size: 32px 32px;
+                z-index: -2;
+            }
 
-    .glow-indigo {
-      position: fixed;
-      bottom: -150px;
-      right: -150px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+            .glow-cyan {
+                position: fixed;
+                top: -150px;
+                left: -150px;
+                width: 500px;
+                height: 500px;
+                background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+                z-index: -1;
+                pointer-events: none;
+            }
 
-    /* Grid Split 2 Colunas */
-    .split-container {
-      width: 100%;
-      max-width: 1100px;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
+            .glow-indigo {
+                position: fixed;
+                bottom: -150px;
+                right: -150px;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+                z-index: -1;
+                pointer-events: none;
+            }
 
-    /* Coluna da Esquerda: Resumo */
-    .badge-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(6, 182, 212, 0.08);
-      border: 1px solid rgba(6, 182, 212, 0.25);
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--accent-cyan);
-      margin-bottom: 20px;
-    }
+            /* Grid Split 2 Colunas */
+            .split-container {
+                width: 100%;
+                max-width: 1100px;
+                display: grid;
+                grid-template-columns: 1.2fr 1fr;
+                gap: 50px;
+                align-items: center;
+            }
 
-    .pulse {
-      width: 8px;
-      height: 8px;
-      background: var(--accent-cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-cyan);
-    }
+            /* Coluna da Esquerda: Resumo */
+            .badge-status {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background: rgba(6, 182, 212, 0.08);
+                border: 1px solid rgba(6, 182, 212, 0.25);
+                padding: 6px 16px;
+                border-radius: 30px;
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--accent-cyan);
+                margin-bottom: 20px;
+            }
 
-    h1 {
-      font-size: clamp(2.4rem, 4vw, 3.5rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+            .pulse {
+                width: 8px;
+                height: 8px;
+                background: var(--accent-cyan);
+                border-radius: 50%;
+                box-shadow: 0 0 10px var(--accent-cyan);
+            }
 
-    .role {
-      font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
-    }
+            h1 {
+                font-size: clamp(2.4rem, 4vw, 3.5rem);
+                font-weight: 900;
+                letter-spacing: -0.04em;
+                line-height: 1.1;
+                margin-bottom: 12px;
+                background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
 
-    .bio {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      font-weight: 400;
-      line-height: 1.7;
-    }
+            .role {
+                font-size: clamp(1.1rem, 2vw, 1.35rem);
+                font-weight: 700;
+                background: linear-gradient(90deg, var(--accent-cyan), var(--accent));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 20px;
+            }
 
-    .highlights-list {
-      list-style: none;
-      margin-bottom: 28px;
-    }
+            .bio {
+                font-size: 1rem;
+                color: var(--text-muted);
+                margin-bottom: 24px;
+                font-weight: 400;
+                line-height: 1.7;
+            }
 
-    .highlights-list li {
-      font-size: 0.95rem;
-      color: #e2e8f0;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
+            .highlights-list {
+                list-style: none;
+                margin-bottom: 28px;
+            }
 
-    .highlights-list li::before {
-      content: "✓";
-      color: var(--accent-cyan);
-      font-weight: 800;
-    }
+            .highlights-list li {
+                font-size: 0.95rem;
+                color: #e2e8f0;
+                margin-bottom: 10px;
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+            }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+            .highlights-list li::before {
+                content: "✓";
+                color: var(--accent-cyan);
+                font-weight: 800;
+            }
 
-    .tag {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--card-border);
-      padding: 6px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      color: #d1d5db;
-    }
+            .tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
 
-    /* Coluna da Direita: Form */
-    .contact-card {
-      background: linear-gradient(180deg, rgba(20, 20, 30, 0.8) 0%, rgba(10, 10, 15, 0.9) 100%);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 36px 32px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
-    }
+            .tag {
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid var(--card-border);
+                padding: 6px 12px;
+                border-radius: 8px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #d1d5db;
+            }
 
-    .form-title {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
-    }
+            /* Coluna da Direita: Form */
+            .contact-card {
+                background: linear-gradient(180deg, rgba(20, 20, 30, 0.8) 0%, rgba(10, 10, 15, 0.9) 100%);
+                border: 1px solid var(--card-border);
+                border-radius: 24px;
+                padding: 36px 32px;
+                backdrop-filter: blur(20px);
+                box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+            }
 
-    .form-subtitle {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
+            .form-title {
+                font-size: 1.4rem;
+                font-weight: 800;
+                color: #fff;
+                margin-bottom: 6px;
+            }
 
-    .form-group {
-      margin-bottom: 18px;
-    }
+            .form-subtitle {
+                font-size: 0.88rem;
+                color: var(--text-muted);
+                margin-bottom: 24px;
+            }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #94a3b8;
-    }
+            .form-group {
+                margin-bottom: 18px;
+            }
 
-    input, textarea {
-      width: 100%;
-      background: rgba(5, 5, 8, 0.7);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 14px;
-      font-size: 14px;
-      color: #fff;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.2s ease;
-    }
+            label {
+                display: block;
+                margin-bottom: 6px;
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: #94a3b8;
+            }
 
-    input:focus, textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
-    }
+            input,
+            textarea {
+                width: 100%;
+                background: rgba(5, 5, 8, 0.7);
+                border: 1px solid var(--card-border);
+                border-radius: 12px;
+                padding: 14px;
+                font-size: 14px;
+                color: #fff;
+                font-family: inherit;
+                outline: none;
+                transition: all 0.2s ease;
+            }
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
+            input:focus,
+            textarea:focus {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+            }
 
-    button[type="submit"] {
-      width: 100%;
-      border: none;
-      border-radius: 12px;
-      padding: 16px;
-      background: linear-gradient(135deg, var(--accent) 0%, #4f46e5 100%);
-      color: #fff;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
-    }
+            textarea {
+                min-height: 110px;
+                resize: vertical;
+            }
 
-    button[type="submit"]:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.5);
-    }
+            button[type="submit"] {
+                width: 100%;
+                border: none;
+                border-radius: 12px;
+                padding: 16px;
+                background: linear-gradient(135deg, var(--accent) 0%, #4f46e5 100%);
+                color: #fff;
+                font-size: 15px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+            }
 
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+            button[type="submit"]:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.5);
+            }
 
-    /* Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(5, 5, 8, 0.85);
-      backdrop-filter: blur(12px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 9999;
-    }
+            button:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
 
-    .modal-overlay.active {
-      display: flex;
-    }
+            /* Modal */
+            .modal-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(5, 5, 8, 0.85);
+                backdrop-filter: blur(12px);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                z-index: 9999;
+            }
 
-    .modal {
-      width: 100%;
-      max-width: 400px;
-      background: #0d0e15;
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 40px 30px;
-      text-align: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-    }
+            .modal-overlay.active {
+                display: flex;
+            }
 
-    .success-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background: rgba(6, 182, 212, 0.1);
-      color: var(--accent-cyan);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      border: 1px solid rgba(6, 182, 212, 0.3);
-    }
+            .modal {
+                width: 100%;
+                max-width: 400px;
+                background: #0d0e15;
+                border: 1px solid var(--card-border);
+                border-radius: 20px;
+                padding: 40px 30px;
+                text-align: center;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            }
 
-    .modal-close {
-      padding: 12px 28px;
-      background: var(--accent);
-      border: none;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-    }
+            .success-icon {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 20px;
+                border-radius: 50%;
+                background: rgba(6, 182, 212, 0.1);
+                color: var(--accent-cyan);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                border: 1px solid rgba(6, 182, 212, 0.3);
+            }
 
-    .error-message {
-      display: none;
-      margin-top: 15px;
-      padding: 12px;
-      border-radius: 8px;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #f87171;
-      font-size: 14px;
-    }
+            .modal-close {
+                padding: 12px 28px;
+                background: var(--accent);
+                border: none;
+                border-radius: 10px;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+            }
 
-    .error-message.active {
-      display: block;
-    }
+            .error-message {
+                display: none;
+                margin-top: 15px;
+                padding: 12px;
+                border-radius: 8px;
+                background: rgba(239, 68, 68, 0.1);
+                border: 1px solid rgba(239, 68, 68, 0.3);
+                color: #f87171;
+                font-size: 14px;
+            }
 
-    /* Responsividade */
-    @media (max-width: 900px) {
-      .split-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
-  </style>
-</head>
+            .error-message.active {
+                display: block;
+            }
 
-<body>
+            /* Responsividade */
+            @media (max-width: 900px) {
+                .split-container {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+            }
+        </style>
+    </head>
 
-  <div class="bg-grid"></div>
-  <div class="glow-cyan"></div>
-  <div class="glow-indigo"></div>
+    <body>
+        <div class="bg-grid"></div>
+        <div class="glow-cyan"></div>
+        <div class="glow-indigo"></div>
 
-  <div class="split-container">
-    
-    <!-- Coluna Esquerda: Informações & Resumo -->
-    <div class="info-col">
-      <div class="badge-status">
-        <span class="pulse"></span>
-        Disponível para Consultoria & Projetos
-      </div>
+        <div class="split-container">
+            <!-- Coluna Esquerda: Informações & Resumo -->
+            <div class="info-col">
+                <div class="badge-status">
+                    <span class="pulse"></span>
+                    Disponível para Consultoria & Projetos
+                </div>
 
-      <h1>Cássio Winkler</h1>
-      <div class="role">Consultor de TI & Especialista em ERP TOTVS <br>
-      ERP • Integrações • Processos • Projetos de TI
-      </div>
-      
-      <p class="bio">
-      Profissional de TI com mais de 18 anos de experiência em gestão de sistemas, análise de negócios e projetos de tecnologia. Especialista em ERP TOTVS, atuando com sustentação, customização, integrações, desenvolvimento e melhoria de processos.
-      </p>
+                <h1>Cássio Winkler</h1>
+                <div class="role">
+                    Consultor de TI & Especialista em ERP TOTVS <br />
+                    ERP • Integrações • Processos • Projetos de TI
+                </div>
 
-      <ul class="highlights-list">
-        <li>ERP TOTVS - sustentação, parametrização e customização (RM e Protheus).</li>
-        <li>Desenvolvimento de Soluções - ADVPL, RM Reports, Fórmula Visual, Planilha Net, Cubos e aplicações web.</li>
-        <li>Dados & Integrações - SQL Server e integração entre sistemas corporativos.</li>
-        <li>Projetos & Processos - gestão de projetos, análise de requisitos e melhoria de processos.</li>
-      </ul>
+                <p class="bio">
+                    Profissional de TI com mais de 18 anos de experiência em gestão de sistemas, análise de negócios e
+                    projetos de tecnologia. Especialista em ERP TOTVS, atuando com sustentação, customização,
+                    integrações, desenvolvimento e melhoria de processos.
+                </p>
 
-      <div class="tags">
-        <span class="tag">TOTVS RM/Protheus</span>
-        <span class="tag">SQL Server</span>
-        <span class="tag">ADVPL</span>
-        <span class="tag">Análise de Requisitos</span>
-        <span class="tag">Transformação Digital</span>
-        <span class="tag">Integrações</span>
-        <span class="tag">Gestão de Projetos</span>
-      </div>
-    </div>
+                <ul class="highlights-list">
+                    <li>ERP TOTVS - sustentação, parametrização e customização (RM e Protheus).</li>
+                    <li>
+                        Desenvolvimento de Soluções - ADVPL, RM Reports, Fórmula Visual, Planilha Net, Cubos e
+                        aplicações web.
+                    </li>
+                    <li>Dados & Integrações - SQL Server e integração entre sistemas corporativos.</li>
+                    <li>Projetos & Processos - gestão de projetos, análise de requisitos e melhoria de processos.</li>
+                </ul>
 
-    <!-- Coluna Direita: Formulário de Contato -->
-    <div class="form-col">
-      <div class="contact-card">
-        <div class="form-title">Vamos conversar?</div>
-        <p class="form-subtitle">Preencha os campos abaixo para entrar em contato.</p>
+                <div class="tags">
+                    <span class="tag">TOTVS RM/Protheus</span>
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">ADVPL</span>
+                    <span class="tag">Análise de Requisitos</span>
+                    <span class="tag">Transformação Digital</span>
+                    <span class="tag">Integrações</span>
+                    <span class="tag">Gestão de Projetos</span>
+                </div>
+            </div>
 
-        <form id="contactForm" action="https://formspree.io/f/mdenkaak" method="POST">
+            <!-- Coluna Direita: Formulário de Contato -->
+            <div class="form-col">
+                <div class="contact-card">
+                    <div class="form-title">Vamos conversar?</div>
+                    <p class="form-subtitle">Preencha os campos abaixo para entrar em contato.</p>
 
-          <div class="form-group">
-            <label for="name">Nome / Empresa</label>
-            <input type="text" id="name" name="name" placeholder="Seu nome ou empresa" required>
-          </div>
+                    <form id="contactForm" action="https://formspree.io/f/mdenkaak" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nome / Empresa</label>
+                            <input type="text" id="name" name="name" placeholder="Seu nome ou empresa" required />
+                        </div>
 
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-          </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+                        </div>
 
-          <div class="form-group">
-            <label for="message">Mensagem</label>
-            <textarea id="message" name="message" placeholder="Descreva sua demanda ou oportunidade..." required></textarea>
-          </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone / WhatsApp</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="(49) 99999-9999"
+                                autocomplete="tel"
+                            />
+                        </div>
 
-          <button type="submit" id="submitButton">Enviar Mensagem</button>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Descreva sua demanda ou oportunidade..."
+                                required
+                            ></textarea>
+                        </div>
 
-          <div class="error-message" id="errorMessage">
-            Ocorreu um erro ao enviar. Por favor, tente novamente.
-          </div>
+                        <button type="submit" id="submitButton">Enviar Mensagem</button>
 
-        </form>
-      </div>
-    </div>
+                        <div class="error-message" id="errorMessage">
+                            Ocorreu um erro ao enviar. Por favor, tente novamente.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-  </div>
+        <!-- Modal de Sucesso -->
+        <div class="modal-overlay" id="successModal">
+            <div class="modal">
+                <div class="success-icon">✓</div>
+                <h3 style="margin-bottom: 10px; font-size: 1.4rem">Mensagem Recebida!</h3>
+                <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem">
+                    Obrigado pelo contato. Retornarei sua mensagem o mais breve possível.
+                </p>
+                <button type="button" class="modal-close" id="closeModal">Entendido</button>
+            </div>
+        </div>
 
-  <!-- Modal de Sucesso -->
-  <div class="modal-overlay" id="successModal">
-    <div class="modal">
-      <div class="success-icon">✓</div>
-      <h3 style="margin-bottom:10px; font-size: 1.4rem;">Mensagem Recebida!</h3>
-      <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">
-        Obrigado pelo contato. Retornarei sua mensagem o mais breve possível.
-      </p>
-      <button type="button" class="modal-close" id="closeModal">Entendido</button>
-    </div>
-  </div>
+        <script>
+            const form = document.getElementById("contactForm");
+            const submitButton = document.getElementById("submitButton");
+            const successModal = document.getElementById("successModal");
+            const closeModal = document.getElementById("closeModal");
+            const errorMessage = document.getElementById("errorMessage");
 
-  <script>
-    const form = document.getElementById("contactForm");
-    const submitButton = document.getElementById("submitButton");
-    const successModal = document.getElementById("successModal");
-    const closeModal = document.getElementById("closeModal");
-    const errorMessage = document.getElementById("errorMessage");
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
 
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
+                submitButton.disabled = true;
+                submitButton.textContent = "Enviando...";
+                errorMessage.classList.remove("active");
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Enviando...";
-      errorMessage.classList.remove("active");
+                const formData = new FormData(form);
 
-      const formData = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            Accept: "application/json",
+                        },
+                    });
 
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: {
-            "Accept": "application/json"
-          }
-        });
+                    if (response.ok) {
+                        form.reset();
+                        successModal.classList.add("active");
+                        submitButton.disabled = false;
+                        submitButton.textContent = "Enviar Mensagem";
+                    } else {
+                        throw new Error("Erro de envio");
+                    }
+                } catch (error) {
+                    errorMessage.classList.add("active");
+                    submitButton.disabled = false;
+                    submitButton.textContent = "Enviar Mensagem";
+                }
+            });
 
-        if (response.ok) {
-          form.reset();
-          successModal.classList.add("active");
-          submitButton.disabled = false;
-          submitButton.textContent = "Enviar Mensagem";
-        } else {
-          throw new Error("Erro de envio");
-        }
+            closeModal.addEventListener("click", () => successModal.classList.remove("active"));
 
-      } catch (error) {
-        errorMessage.classList.add("active");
-        submitButton.disabled = false;
-        submitButton.textContent = "Enviar Mensagem";
-      }
-    });
+            successModal.addEventListener("click", (e) => {
+                if (e.target === successModal) successModal.classList.remove("active");
+            });
 
-    closeModal.addEventListener("click", () => successModal.classList.remove("active"));
-    
-    successModal.addEventListener("click", (e) => {
-      if (e.target === successModal) successModal.classList.remove("active");
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") successModal.classList.remove("active");
-    });
-  </script>
-
-</body>
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") successModal.classList.remove("active");
+            });
+        </script>
+    </body>
 </html>
